@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg-base: #0b0d0f;
+    --bg-surface: #14171a;
+    --bg-elevated: #1c2024;
+    --bg-bezel: #050607;
+
+    --text-primary: #f2f4f7;
+    --text-secondary: #98a2b3;
+    --text-muted: #475467;
+
+    --accent-orange: #ff4405;
+    --accent-orange-hover: #e03c04;
+    --accent-cyan: #00e5ff;
+    --accent-green: #00f0a8;
+    --accent-yellow: #ffb300;
+    --accent-red: #ff0040;
+
+    --border-default: #2a3036;
+    --border-subtle: #1d2329;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family:
+        "IBM Plex Sans",
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings:
+        "ss01" on,
+        "cv11" on;
+}
+
+#root {
+    min-height: 100vh;
+    background: var(--bg-base);
+}
+
+/* Typography */
+.font-display {
+    font-family: "Chivo", sans-serif;
+}
+.font-mono {
+    font-family: "JetBrains Mono", monospace;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--border-default);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-orange);
+}
+
+/* Selection */
+::selection {
+    background: var(--accent-orange);
+    color: #fff;
+}
+
+/* Custom utility classes */
+.bg-base {
+    background-color: var(--bg-base);
+}
+.bg-surface {
+    background-color: var(--bg-surface);
+}
+.bg-elevated {
+    background-color: var(--bg-elevated);
+}
+.bg-bezel {
+    background-color: var(--bg-bezel);
+}
+.text-primary {
+    color: var(--text-primary);
+}
+.text-secondary {
+    color: var(--text-secondary);
+}
+.text-muted {
+    color: var(--text-muted);
+}
+.text-orange {
+    color: var(--accent-orange);
+}
+.text-cyan {
+    color: var(--accent-cyan);
+}
+.text-green {
+    color: var(--accent-green);
+}
+.text-yellow {
+    color: var(--accent-yellow);
+}
+.bg-orange {
+    background-color: var(--accent-orange);
+}
+.bg-cyan {
+    background-color: var(--accent-cyan);
+}
+.border-default {
+    border-color: var(--border-default);
+}
+.border-subtle {
+    border-color: var(--border-subtle);
+}
+.border-secondary {
+    border-color: var(--text-secondary);
+}
+.border-orange {
+    border-color: var(--accent-orange);
+}
+
+/* Factory grid background */
+.factory-grid {
+    background-image:
+        linear-gradient(rgba(42, 48, 54, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42, 48, 54, 0.4) 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+.factory-grid-dense {
+    background-image:
+        linear-gradient(rgba(42, 48, 54, 0.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42, 48, 54, 0.6) 1px, transparent 1px);
+    background-size: 16px 16px;
+}
+
+/* Noise overlay */
+.noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--accent-orange);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: "Chivo", sans-serif;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-primary:hover {
+    background: var(--accent-orange-hover);
+    transform: translateY(-1px);
+}
+.btn-primary:active {
+    transform: scale(0.97);
+}
+
+.btn-secondary {
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: "Chivo", sans-serif;
+    border: 1px solid var(--border-default);
+    cursor: pointer;
+    transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-secondary:hover {
+    border-color: var(--accent-orange);
+    color: var(--accent-orange);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: "Chivo", sans-serif;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.btn-ghost:hover {
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+}
+
+/* Inputs */
+.input-base {
+    background: var(--bg-base);
+    border: 1px solid var(--border-default);
+    color: var(--text-primary);
+    padding: 0.75rem 1rem;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 0.875rem;
+    transition: all 200ms ease;
+    width: 100%;
+    outline: none;
+}
+.input-base:focus {
+    border-color: var(--accent-orange);
+    box-shadow: 0 0 0 1px var(--accent-orange);
+}
+.input-base::placeholder {
+    color: var(--text-muted);
+}
+
+/* Cards */
+.card-factory {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    transition: all 200ms ease;
+    position: relative;
+}
+.card-factory:hover {
+    border-color: var(--accent-orange);
+    transform: translateY(-2px);
+}
+
+/* Status indicators */
+.status-dot {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+.status-dot.running {
+    background: var(--accent-yellow);
+    animation: pulse-dot 1.4s ease-in-out infinite;
+}
+.status-dot.done {
+    background: var(--accent-green);
+}
+.status-dot.draft {
+    background: var(--text-muted);
+}
+.status-dot.error {
+    background: var(--accent-red);
+}
+
+@keyframes pulse-dot {
+    0%,
+    100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(255, 179, 0, 0.5);
+    }
+    50% {
+        opacity: 0.7;
+        box-shadow: 0 0 0 6px rgba(255, 179, 0, 0);
+    }
+}
+
+/* Scan line animation */
+@keyframes scan {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
+.scan-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--accent-orange),
+        transparent
+    );
+    animation: scan 3s linear infinite;
+    pointer-events: none;
+}
+
+/* Glow */
+.glow-orange {
+    box-shadow:
+        0 0 24px rgba(255, 68, 5, 0.3),
+        0 0 60px rgba(255, 68, 5, 0.15);
+}
+
+/* Marquee */
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.marquee-track {
+    animation: marquee 30s linear infinite;
+}
+
+/* Loading shimmer */
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+.shimmer {
+    background: linear-gradient(
+        90deg,
+        var(--bg-surface) 0%,
+        var(--bg-elevated) 50%,
+        var(--bg-surface) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s linear infinite;
+}
+
+/* Headings utility */
+.h-display {
+    font-family: "Chivo", sans-serif;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+.metadata {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}

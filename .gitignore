@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/.venv/
+
+# Build output
+frontend/build/
+backend/storage/
+
+# Environment
+.env
+backend/.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Temp / scratch
+frontend/test-tailwind-out.css
