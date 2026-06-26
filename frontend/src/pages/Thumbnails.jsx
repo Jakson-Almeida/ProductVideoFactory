@@ -14,11 +14,11 @@ export default function Thumbnails() {
   };
 
   return (
-    <div data-testid="thumbnails-page" className="p-8 grid grid-cols-1 xl:grid-cols-12 gap-6">
+    <div data-testid="thumbnails-page" className="p-4 sm:p-6 lg:p-8 grid grid-cols-1 xl:grid-cols-12 gap-6">
       <section className="xl:col-span-5 space-y-5">
         <div>
           <div className="metadata mb-1">STAGE 05 · COPY & THUMBNAIL</div>
-          <h1 className="h-display text-3xl">
+          <h1 className="h-display text-2xl sm:text-3xl">
             Pack the <span className="text-orange">shipping label</span>
           </h1>
           <p className="text-secondary text-sm mt-2 max-w-md">
@@ -26,8 +26,8 @@ export default function Thumbnails() {
           </p>
         </div>
 
-        <div className="flex items-center gap-2">
-          <div className="metadata">TONE</div>
+        <div className="flex flex-wrap items-center gap-2">
+          <div className="metadata w-full sm:w-auto">TONE</div>
           {["PUNCHY", "HONEST", "HYPE", "EDUCATIONAL"].map((t) => (
             <button
               key={t}
@@ -42,7 +42,7 @@ export default function Thumbnails() {
               {t}
             </button>
           ))}
-          <button data-testid="regenerate-btn" className="btn-secondary ml-auto !py-1.5">
+          <button data-testid="regenerate-btn" className="btn-secondary sm:ml-auto !py-1.5 w-full sm:w-auto justify-center">
             <RefreshCcw size={12} /> REGENERATE
           </button>
         </div>
@@ -59,7 +59,7 @@ export default function Thumbnails() {
                   : "border-default bg-surface hover:border-secondary"
               }`}
             >
-              <div className="relative w-36 h-24 bg-bezel shrink-0 overflow-hidden">
+              <div className="relative w-28 sm:w-36 h-20 sm:h-24 bg-bezel shrink-0 overflow-hidden">
                 <img
                   src={t.image}
                   alt={t.title}
@@ -104,7 +104,7 @@ export default function Thumbnails() {
               </div>
             </div>
             <div className="absolute bottom-6 left-6 right-6">
-              <div className="font-display font-black text-4xl leading-tight max-w-2xl mb-2 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
+              <div className="font-display font-black text-2xl sm:text-4xl leading-tight max-w-2xl mb-2 drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)]">
                 {thumb.title}
               </div>
               <div className="inline-block bg-orange text-black px-3 py-1 font-display font-black text-xs uppercase tracking-wider">

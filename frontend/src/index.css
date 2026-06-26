@@ -48,6 +48,12 @@ body {
 #root {
     min-height: 100vh;
     background: var(--bg-base);
+    overflow-x: hidden;
+}
+
+/* Mobile safe area for bottom nav */
+.safe-area-pb {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 /* Typography */

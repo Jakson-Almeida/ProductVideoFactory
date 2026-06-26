@@ -13,10 +13,10 @@ export default function Templates() {
   );
 
   return (
-    <div data-testid="templates-page" className="p-8 space-y-8">
+    <div data-testid="templates-page" className="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-8">
       <div>
         <div className="metadata mb-2">TEMPLATE WAREHOUSE</div>
-        <h1 className="h-display text-4xl mb-2">
+        <h1 className="h-display text-2xl sm:text-3xl lg:text-4xl mb-2">
           Pre-built <span className="text-orange">factory blueprints</span>
         </h1>
         <p className="text-secondary text-sm max-w-2xl">
@@ -26,7 +26,7 @@ export default function Templates() {
       </div>
 
       <div className="flex flex-wrap items-center gap-3 border-y border-default py-4">
-        <div className="flex items-center gap-2 px-3 h-10 border border-default bg-surface w-80">
+        <div className="flex items-center gap-2 px-3 h-10 border border-default bg-surface w-full sm:w-80">
           <Search size={14} className="text-muted" />
           <input
             data-testid="template-search"

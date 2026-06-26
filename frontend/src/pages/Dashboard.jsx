@@ -27,16 +27,16 @@ const statusLabel = {
 
 export default function Dashboard() {
   return (
-    <div data-testid="dashboard-page" className="p-8 space-y-10">
+    <div data-testid="dashboard-page" className="p-4 sm:p-6 lg:p-8 space-y-6 sm:space-y-10">
       {/* Hero */}
-      <section className="relative card-factory p-8 overflow-hidden">
+      <section className="relative card-factory p-5 sm:p-8 overflow-hidden">
         <div className="absolute inset-0 factory-grid opacity-40 pointer-events-none" />
         <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <div className="metadata mb-4 flex items-center gap-2">
               <span className="status-dot running" /> LIVE PRODUCTION FLOOR
             </div>
-            <h1 className="h-display text-4xl sm:text-5xl leading-[0.95] mb-4">
+            <h1 className="h-display text-3xl sm:text-4xl lg:text-5xl leading-[0.95] mb-4">
               Turn any product
               <br />
               into a <span className="text-orange">scroll-stopping</span> video.
@@ -105,8 +105,8 @@ export default function Dashboard() {
       </section>
 
       {/* Pipeline */}
-      <section className="card-factory p-6">
-        <div className="flex items-center justify-between mb-6">
+      <section className="card-factory p-4 sm:p-6">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
             <div className="metadata mb-1">PRODUCTION PIPELINE / PVF-00184</div>
             <h2 className="font-display font-bold text-xl">Echo Dot 5 — 60s Unboxing</h2>
@@ -115,7 +115,7 @@ export default function Dashboard() {
             OPEN <ArrowUpRight size={14} />
           </Link>
         </div>
-        <div className="grid grid-cols-6 gap-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2">
           {PIPELINE_STAGES.map((stage, i) => {
             const active = i < 4;
             const current = i === 3;
@@ -151,7 +151,7 @@ export default function Dashboard() {
 
       {/* Recent productions */}
       <section>
-        <div className="flex items-center justify-between mb-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
           <div>
             <div className="metadata mb-1">RECENT PRODUCTIONS</div>
             <h2 className="font-display font-bold text-2xl">Off the line</h2>

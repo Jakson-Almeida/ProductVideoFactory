@@ -37,11 +37,11 @@ export default function Export() {
     setSelectedPlatforms((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
 
   return (
-    <div data-testid="export-page" className="p-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
+    <div data-testid="export-page" className="p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6">
       <section className="lg:col-span-7 space-y-6">
         <div>
           <div className="metadata mb-1">STAGE 06 · SHIPPING DOCK</div>
-          <h1 className="h-display text-3xl">
+          <h1 className="h-display text-2xl sm:text-3xl">
             Ship to <span className="text-orange">every platform</span> at once
           </h1>
           <p className="text-secondary text-sm mt-2 max-w-xl">
@@ -160,7 +160,7 @@ export default function Export() {
 
       {/* Order summary */}
       <aside className="lg:col-span-5">
-        <div className="sticky top-20 space-y-4">
+        <div className="lg:sticky lg:top-20 space-y-4">
           <div className="card-factory p-6">
             <div className="metadata mb-3">PRODUCTION ORDER</div>
             <div className="font-display font-black text-xl mb-4">

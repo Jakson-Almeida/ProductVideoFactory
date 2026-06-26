@@ -44,7 +44,7 @@ export default function Editor() {
       className="grid grid-cols-12 gap-0 min-h-[calc(100vh-4rem)]"
     >
       {/* Left rail — intake */}
-      <aside className="col-span-12 lg:col-span-3 border-r border-default bg-surface p-5 space-y-6">
+      <aside className="col-span-12 lg:col-span-3 border-r border-default bg-surface p-4 sm:p-5 space-y-6">
         <div>
           <div className="metadata mb-2">STAGE 01 · INTAKE</div>
           <h2 className="font-display font-bold text-lg mb-3">Brief the factory</h2>
@@ -130,7 +130,7 @@ export default function Editor() {
 
       {/* Center — canvas */}
       <section className="col-span-12 lg:col-span-6 bg-bezel relative flex flex-col">
-        <div className="border-b border-default px-5 py-3 flex items-center justify-between bg-base">
+        <div className="border-b border-default px-4 sm:px-5 py-3 flex flex-wrap items-center justify-between gap-3 bg-base">
           <div className="flex items-center gap-2">
             <span className="metadata">CANVAS</span>
             <div className="flex border border-default">
@@ -154,18 +154,20 @@ export default function Editor() {
               </button>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-between sm:justify-end">
             <span className="metadata">PVF-DRAFT-0001</span>
-            <button data-testid="generate-btn" className="btn-primary">
+            <button data-testid="generate-btn" className="btn-primary !py-2">
               <Wand2 size={14} /> GENERATE
             </button>
           </div>
         </div>
 
-        <div className="flex-1 relative flex items-center justify-center p-8 factory-grid-dense overflow-hidden">
+        <div className="flex-1 relative flex items-center justify-center p-4 sm:p-8 factory-grid-dense overflow-hidden min-h-[280px]">
           <div
-            className={`relative bg-black border-2 border-default overflow-hidden shadow-2xl ${
-              aspect === "9:16" ? "h-[70vh] aspect-[9/16]" : "w-[80%] max-w-3xl aspect-video"
+            className={`relative bg-black border-2 border-default overflow-hidden shadow-2xl max-w-full ${
+              aspect === "9:16"
+                ? "w-[min(100%,240px)] sm:w-64 aspect-[9/16]"
+                : "w-full max-w-3xl aspect-video"
             }`}
             data-testid="preview-canvas"
           >
@@ -181,9 +183,9 @@ export default function Editor() {
               </div>
               <div className="metadata bg-bezel/80 px-2 py-1">00:12 / 00:{duration}</div>
             </div>
-            <div className="absolute bottom-20 left-4 right-4">
+            <div className="absolute bottom-16 sm:bottom-20 left-3 right-3 sm:left-4 sm:right-4">
               <div className="bg-bezel/90 border-l-4 border-orange px-3 py-2">
-                <div className="font-display font-black text-lg leading-tight">
+                <div className="font-display font-black text-sm sm:text-lg leading-tight">
                   “This Echo Dot just replaced 5 gadgets in my house.”
                 </div>
                 <div className="metadata mt-1 text-orange">{selectedAvatar?.name}</div>
@@ -207,10 +209,10 @@ export default function Editor() {
           </div>
         </div>
 
-        <div className="border-t border-default bg-base p-4">
-          <div className="flex items-center justify-between mb-3">
+        <div className="border-t border-default bg-base p-3 sm:p-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
             <div className="metadata">TIMELINE / 6 STAGES</div>
-            <div className="flex items-center gap-3 text-xs text-secondary">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-xs text-secondary">
               <span className="flex items-center gap-1">
                 <Mic size={11} /> Voiceover
               </span>
@@ -222,7 +224,7 @@ export default function Editor() {
               </span>
             </div>
           </div>
-          <div className="grid grid-cols-6 gap-1">
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-1">
             {PIPELINE_STAGES.map((s, i) => (
               <div
                 key={s.id}
@@ -254,7 +256,7 @@ export default function Editor() {
       </section>
 
       {/* Right rail — cast + platform */}
-      <aside className="col-span-12 lg:col-span-3 border-l border-default bg-surface p-5 space-y-6">
+      <aside className="col-span-12 lg:col-span-3 border-l border-default bg-surface p-4 sm:p-5 space-y-6">
         <div>
           <div className="metadata mb-2">STAGE 03 · AVATAR CAST</div>
           <h3 className="font-display font-bold text-base mb-3">Pick a performer</h3>
