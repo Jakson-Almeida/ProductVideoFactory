@@ -31,6 +31,7 @@ uvicorn app.main:app --reload --port 8000
 backend/
 ├── requirements.txt
 ├── .env.example
+├── MoneyPrinterTurbo/   # video generation engine (gitignored; clone separately)
 └── app/
     ├── main.py          # FastAPI app, CORS, /static mount, router wiring
     ├── config.py        # env-driven settings
@@ -74,7 +75,10 @@ backend/
 
 ## Switching to the MoneyPrinterTurbo engine
 
-1. Run a MoneyPrinterTurbo API instance (see its repo's Docker / Python setup).
+MoneyPrinterTurbo is vendored at `backend/MoneyPrinterTurbo/`. See
+[docs/MONEYPRINTERTURBO_SETUP.md](../docs/MONEYPRINTERTURBO_SETUP.md) for API keys and Docker startup.
+
+1. Configure `backend/MoneyPrinterTurbo/config.toml` and start MPT (Docker recommended).
 2. Set in `.env`:
    ```
    VIDEO_ENGINE=moneyprinterturbo

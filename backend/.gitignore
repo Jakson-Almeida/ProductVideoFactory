@@ -1,5 +1,16 @@
 .venv/
 __pycache__/
 *.pyc
+
+# Local env (API keys, engine URLs)
 .env
+.env.*
+!.env.example
+
+# Render output
 storage/
+
+# MoneyPrinterTurbo — config.toml contains Pexels/LLM API keys
+MoneyPrinterTurbo/
+MoneyPrinterTurbo/config.toml
+MoneyPrinterTurbo/storage/

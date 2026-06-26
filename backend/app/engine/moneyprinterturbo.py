@@ -64,15 +64,19 @@ class MoneyPrinterTurboEngine(VideoEngine):
             status = self._get(f"/api/v1/tasks/{task_id}")
             data = status.get("data", status)
             progress = int(data.get("progress", 0))
-            state = (data.get("state") or "").lower()
+            # MPT uses numeric states: -1 failed, 1 complete, 4 processing
+            raw_state = data.get("state")
+            state = raw_state if isinstance(raw_state, int) else str(raw_state or "").lower()
 
             stage_id = min(6, max(1, 1 + progress // 17))
-            on_progress(stage_id, "RENDER", min(progress, 99), f"MPT state: {state or 'running'}")
+            on_progress(stage_id, "RENDER", min(progress, 99), f"MPT progress: {progress}%")
 
-            if data.get("videos"):
-                on_progress(6, "EXPORT", 100, "Render complete")
-                return data["videos"][0]
-            if state in {"failed", "error"}:
+            if data.get("videos") or state == 1:
+                videos = data.get("videos") or []
+                if videos:
+                    on_progress(6, "EXPORT", 100, "Render complete")
+                    return videos[0]
+            if state == -1 or state in {"failed", "error", "-1"}:
                 raise RuntimeError(f"MoneyPrinterTurbo task failed: {data}")
 
             time.sleep(self.poll_seconds)

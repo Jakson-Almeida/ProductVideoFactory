@@ -7,11 +7,38 @@ backend/.venv/
 frontend/build/
 backend/storage/
 
-# Environment
+# ---------------------------------------------------------------------------
+# Secrets & credentials — never commit
+# ---------------------------------------------------------------------------
 .env
-backend/.env
+.env.*
+!.env.example
+!**/.env.example
 
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
+
+# Common secret/credential filenames
+**/secrets.json
+**/credentials.json
+**/*.pem
+**/*.key
+**/id_rsa
+**/id_rsa.pub
+
+# MoneyPrinterTurbo (vendored engine; config.toml holds API keys)
+backend/MoneyPrinterTurbo/
+backend/MoneyPrinterTurbo/config.toml
+backend/MoneyPrinterTurbo/storage/
+
+# ---------------------------------------------------------------------------
 # Python
+# ---------------------------------------------------------------------------
 __pycache__/
 *.pyc
 *.pyo

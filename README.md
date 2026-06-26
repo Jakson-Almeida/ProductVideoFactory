@@ -94,7 +94,9 @@ Copy `backend/.env.example` to `backend/.env`. Key settings:
 |---|---|---|
 | `CORS_ORIGINS` | `http://localhost:3000` | Allowed frontend origins |
 | `VIDEO_ENGINE` | `stub` | `stub` or `moneyprinterturbo` |
-| `MPT_BASE_URL` | `http://localhost:8080` | MoneyPrinterTurbo API URL |
+| `MPT_BASE_URL` | `http://127.0.0.1:8080` | MoneyPrinterTurbo API URL |
+
+**LLM and stock-footage API keys go in MoneyPrinterTurbo's `config.toml`, not here.** See [docs/MONEYPRINTERTURBO_SETUP.md](docs/MONEYPRINTERTURBO_SETUP.md) for a step-by-step guide.
 
 See [backend/README.md](backend/README.md) for API endpoints and MoneyPrinterTurbo integration details.
 
