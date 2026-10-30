@@ -34,6 +34,7 @@ ProductVideoFactory/
 │   └── public/
 ├── backend/           FastAPI service — see backend/README.md
 ├── docs/reference/    UI comparison screenshots
+├── LICENSE            MIT License
 └── README.md
 ```
 
@@ -111,4 +112,4 @@ See [backend/README.md](backend/README.md) for API endpoints and MoneyPrinterTur
 
 ## License
 
-Private project — see repository owner for terms.
+This project is licensed under the [MIT License](LICENSE).
